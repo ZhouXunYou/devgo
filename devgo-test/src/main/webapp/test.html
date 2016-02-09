@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test</title>
+</head>
+<script type="text/javascript">
+	invoke = {
+		apiId:1,
+		params:{},
+		success:function(data){
+			console.info(data.message);
+		},
+		error:function(data){
+			console.info(data.message);
+		}
+	}
+	function invokeClientApi(flag){
+		if(flag){
+			invoke.success({message:"good"});
+		}else{
+			invoke.error({message:"bad"});
+		}
+	}
+	
+</script>
+<body>
+	<input type="button" value="BTN" onclick="invokeClientApi(true);">
+</body>
+</html>

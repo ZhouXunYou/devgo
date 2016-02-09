@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+	<property name="LOG_HOME" value="c:/logs" />
+	<property name="PROJECT_NAME" value="elev-interface" />
+
+	<!-- Console log config start -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d[%-5level]%logger:%msg%n</pattern>
+		</encoder>
+	</appender>
+	<!-- Console log config end -->
+
+
+	<!-- Error log config start -->
+	<appender name="ERROR_FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/${PROJECT_NAME}.%d{yyyy-MM-dd}.e.log</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d[%level]%logger:%msg%n</pattern>
+		</encoder>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>1000MB</MaxFileSize>
+		</triggeringPolicy>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+	<!-- Error log config end -->
+
+	<!-- Warn log config start -->
+	<appender name="WARN_FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/${PROJECT_NAME}.%d{yyyy-MM-dd}.w.log</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d[%level]%logger:%msg%n</pattern>
+		</encoder>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>1000MB</MaxFileSize>
+		</triggeringPolicy>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>WARN</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+	<!-- Warn log config end -->
+
+
+
+	<!-- Info log config start -->
+	<appender name="INFO_FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/${PROJECT_NAME}.%d{yyyy-MM-dd}.i.log</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d[%level]%logger:%msg%n</pattern>
+		</encoder>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>1000MB</MaxFileSize>
+		</triggeringPolicy>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+	<!-- Info log config end -->
+
+
+	<!-- Debug log config start -->
+<!-- 	<appender name="DEBUG_FILE" -->
+<!-- 		class="ch.qos.logback.core.rolling.RollingFileAppender"> -->
+<!-- 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy"> -->
+<!-- 			<FileNamePattern>${LOG_HOME}/${PROJECT_NAME}.%d{yyyy-MM-dd}.d.log</FileNamePattern> -->
+<!-- 			<MaxHistory>30</MaxHistory> -->
+<!-- 		</rollingPolicy> -->
+<!-- 		<encoder> -->
+<!-- 			<pattern>%d[%level]%logger:%msg%n</pattern> -->
+<!-- 		</encoder> -->
+<!-- 		<triggeringPolicy -->
+<!-- 			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy"> -->
+<!-- 			<MaxFileSize>1000MB</MaxFileSize> -->
+<!-- 		</triggeringPolicy> -->
+<!-- 	</appender> -->
+	<!-- Debug log config end -->
+
+
+<!-- 	<logger name="com.feinno" additivity="false" level="error"> -->
+<!-- 		<appender-ref ref="ERROR_FILE" /> -->
+<!-- 	</logger> -->
+<!-- 	<logger name="com.feinno" additivity="false" level="warn"> -->
+<!-- 		<appender-ref ref="WARN_FILE" /> -->
+<!-- 	</logger> -->
+<!-- 	<logger name="com.feinno" additivity="false" level="info"> -->
+<!-- 		<appender-ref ref="INFO_FILE" /> -->
+<!-- 	</logger> -->
+<!-- 	<logger name="com.feinno" additivity="false" level="debug"> -->
+<!-- 		<appender-ref ref="STDOUT" /> -->
+<!-- 	</logger> -->
+<!-- 	<root level="info"> -->
+<!-- 		<appender-ref ref="STDOUT" /> -->
+<!-- 	</root> -->
+	
+<!-- 	<logger name="org.hibernate" level="info"> -->
+<!-- 		<appender-ref ref="STDOUT" /> -->
+<!-- 	</logger> -->
+	<logger name="org.springframework" level="info">
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
+<!-- 	<logger name="org.hibernate.cache.ehcache" level="debug"> -->
+<!-- 		<appender-ref ref="STDOUT" /> -->
+<!-- 	</logger> -->
+<!-- 	<logger name="com.mchange" level="info"> -->
+<!-- 		<appender-ref ref="INFO_FILE" /> -->
+<!-- 	</logger> -->
+	
+	
+</configuration>
