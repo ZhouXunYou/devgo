@@ -8,9 +8,8 @@ import java.util.Date;
 public class DateUtil {
 	public static final String DEFAULT_FORMAT_WITH_DATE_TIME = "yyyy-MM-dd HH:mm:ss";
 	public static final String DEFAULT_FORMAT_WITH_DATE = "yyyy-MM-dd";
-	public static final String DEFAULT_FORMAT_WITH_TIME = "HH:mm:ss";
-	private static final SimpleDateFormat DEFAULT_FORMAT_YMD_HMS = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	private static final SimpleDateFormat DEFAULT_FORMAT_YMD = new SimpleDateFormat("yyyy-MM-dd");
+	private static final SimpleDateFormat DEFAULT_FORMAT_YMD_HMS = new SimpleDateFormat(DEFAULT_FORMAT_WITH_DATE_TIME);
+	private static final SimpleDateFormat DEFAULT_FORMAT_YMD = new SimpleDateFormat(DEFAULT_FORMAT_WITH_DATE);
 
 	/**
 	 * 获取当前的系统时间,Format:yyyy-MM-dd HH:mm:ss

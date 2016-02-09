@@ -49,11 +49,44 @@ public interface EntityDao<Entity> {
 	 * @return
 	 */
 	public PageResult<Entity> paging(int pageNumber,int pageSize,final List<DynamicSpecification> dynamicSpecifications,SortSchema sortSchema);
-	
+	/**
+	 * 获取数据库类型
+	 * @return
+	 */
 	public DatabaseType getDatabaseType();
+	/**
+	 * 执行原生SQL语句
+	 * @param sql
+	 * @param params
+	 * @return
+	 */
 	public List<Object[]> executeNativeSQL(String sql,Map<String,Object> params);
+	/**
+	 * 执行原生SQL语句
+	 * @param sql
+	 * @param params
+	 * @param clazz
+	 * @return
+	 */
 	public List<Entity> executeNativeSQL(String sql,Map<String,Object> params,Class<Entity> clazz);
+	/**
+	 * 执行原生SQL语句，分页
+	 * @param sql
+	 * @param params
+	 * @param pageSize
+	 * @param pageNumber
+	 * @return
+	 */
 	public List<Object[]> executeNativeSQL(String sql,Map<String,Object> params,int pageSize,int pageNumber);
+	/**
+	 * 执行原生SQL语句，分页
+	 * @param sql
+	 * @param params
+	 * @param clazz
+	 * @param pageSize
+	 * @param pageNumber
+	 * @return
+	 */
 	public List<Entity> executeNativeSQL(String sql,Map<String,Object> params,Class<Entity> clazz,int pageSize,int pageNumber);
 	
 }
