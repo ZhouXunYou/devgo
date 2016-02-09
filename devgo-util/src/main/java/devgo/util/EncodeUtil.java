@@ -63,7 +63,4 @@ public class EncodeUtil {
 	public static String md5(String inStr, int startIndex, int offset) {
 		return md5(inStr).substring(startIndex, offset);
 	}
-	public static void main(String[] args) {
-		System.out.println(md5("1").length());
-	}
 }
